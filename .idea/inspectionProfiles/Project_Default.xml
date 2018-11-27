@@ -6,6 +6,8 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="fabric.*" />
+          <option value="nmap.PortScanner" />
+          <option value="nmap.PortScannerError" />
         </list>
       </option>
     </inspection_tool>
