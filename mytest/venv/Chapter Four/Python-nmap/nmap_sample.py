@@ -26,8 +26,8 @@ except:
 try:
     #调用扫描方法，参数指定扫描主机hosts，nmap扫描命令行参数arguments
     nm.scan(hosts=hosts, arguments = '-v -sS -p'+port)
-except Exception,e:
-    print "Scan erro:"+str(e)
+except Exception as e:
+    print ("Scan erro:"+str(e))
 
 for host in nm.all_hosts():     #遍历扫描主机
     print ('-------------------------------------------------------')
