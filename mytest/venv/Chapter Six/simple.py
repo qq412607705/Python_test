@@ -21,7 +21,7 @@ ssh.connect(hostname=hostname,username=username,password=password)
 #调用远程执行命令方法exec_command（）
 stdin,stdout,stderr=ssh.exec_command('free -m')
 #打印命令执行结果，得到Python列表形式，可以使用stdout.readlines()
-print stdout.read()
+print (stdout.read())
 #关闭ssh连接
 ssh.close()
 
