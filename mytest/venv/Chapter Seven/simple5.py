@@ -35,9 +35,9 @@ def check_task():   #校验文件任务函数
         lmd5=local("md5sum /data/logs/access.tar.gz",capture=True).split(' ')[0]
         rmd5=run("md5sum /data/logs/access.tar.gz").split(' ')[0]
     if lmd5==rmd5:  #对比本地及远程文件md5信息
-        print "OK"
+        print ("OK")
     else:
-        print "ERROR"
+        print ("ERROR")
 
 @task
 def go():
