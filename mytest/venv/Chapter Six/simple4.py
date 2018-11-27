@@ -47,8 +47,8 @@ channel.send('scp '+tmppath+' '+username+'@'+hostname+':'+remotepath+'\n')
 while not buff.endswith(passinfo):
     try:
         resp = channel.recv(9999)
-    except Exception,e:
-        print 'Error info:%s connection time.' %(str(e))
+    except Exception as e:
+        print ('Error info:%s connection time.' %(str(e)))
         channel.close()
         ssh.close()
         sys.exit()
@@ -63,13 +63,13 @@ buff = ''
 while not buff.endswith('# '):
     resp = channel.recv(9999)
     if not resp.find(passinfo)==-1:
-        print 'Error info: Authentication failed.'
+        print ('Error info: Authentication failed.')
         channel.close()
         ssh.close()
         sys.exit()
 
     buff += resp
-print buff
+print (buff)
 channel.close()
 ssh.close()
 
