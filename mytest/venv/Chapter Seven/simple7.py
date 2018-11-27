@@ -3,11 +3,10 @@
 # author:Mr.Chen
 
 from fabric.api import *
-from favric.context_managers import *
-from fabric.contrib.console import confirm
+from fabric.context_managers import *
+from fabric.contrib.console import *
 from fabric.colors import *
 import time
-
 
 env.user = 'root'
 env.roledefs = {
@@ -38,14 +37,14 @@ def input_versionid():      #获得用户输入的版本号，以便做版本回
 @task
 @runs_once
 def tar_source():       #打包本地项目主目录，并将压缩包存储到本地压缩目录
-    print yellow("Creating source package...")
+    print (yellow("Creating source package..."))
     with lcd(env.project_dev_source):
         local("tar -czf %s.tar.gz ." % (env.project_tar_source + env.project_pack_name))
-    print green("Creating source package sucess!")
+    print (green("Creating source package sucess!"))
 
 @task
 def put_package():      #上传任务函数
-    print yellow("Start put package...")
+    print (yellow("Start put package..."))
     with settings(warn_only=True):
         with cd(env.deploy_project_root + env.deploy_release_dir):
             run("mkdir %s" % (env.deploy_version))      #创建版本目录
@@ -59,20 +58,20 @@ def put_package():      #上传任务函数
         run("tar -zxvf %s.tar.gz" % (env.project_pack_name))
         run("rm -rf %s.tar.gz" % (env.project_pack_name))
 
-    print green("Put & untar package success!")
+    print (green("Put & untar package success!"))
 
 @task
 def make_symlink():     #为当前版本目录做软连接
-    print yellow("update current symlink")
+    print (yellow("update current symlink"))
     env.deploy_full_path=env.deploy_project_root + env.deploy_release_dir + "/"+env.deploy_version
     with settings(warn_only=True):      #删除软连接，重新创建并指定软连接目录，新版本生效
         run("rm -rf %s" % (env.deploy_project_root + env.deploy_current_dir))
         run("ln -s %s %S" % (env.deploy_full_path, env.deploy_project_root + env.deploy_current_dir))
-    print green("make symlink success!")
+    print (green("make symlink success!"))
 
 @task
 def rollback():     #版本回滚任务函数
-    print yellow("rollback project version...")
+    print (yellow("rollback project version..."))
     versionid = input_versionid()       #获得用户输入的回滚版本号
     if versionid=='':
         abrot("Project version ID error,abort!")
@@ -80,7 +79,7 @@ def rollback():     #版本回滚任务函数
     env.deploy_full_path=env.deploy_project_root + env.deploy_release_dir +"/"+versionid
     run("rm -f %s" % env.deploy_project_root + env.deploy_current_dir)
     run("ln -s %s %s" % (env.deploy_full_path, env.deploy_project_root + env.deploy_current_dir))  #删除软连接，重新创建并指定软连接目录，新版本生效
-    print green("rollback success!")
+    print (green("rollback success!"))
 
 @task
 def go():       #自动化程序版本发布入口函数

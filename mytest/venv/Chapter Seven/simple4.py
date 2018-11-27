@@ -3,7 +3,7 @@
 # author:Mr.Chen
 
 from fabric.api import *
-from favric.context_managers import *
+from fabric.context_managers import *
 from fabric.contrib.console import *
 
 env.user = 'root'
