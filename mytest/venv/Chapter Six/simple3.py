@@ -38,8 +38,8 @@ channel.send('ssh '+username+'@'+hostname+'\n')
 while not buff.endswith(passinfo):
     try:
         resp = channel.recv(9999)
-    except Exception,e:
-        print 'Error info:%s connection time.' %(str(e))
+    except Exception as e:
+        print ('Error info:%s connection time.' %(str(e)))
         channel.close()
         ssh.close()
         sys.exit()
@@ -58,7 +58,7 @@ while not buff.endswith('# '):
     resp = channel.recv(9999)
 #输出串尾含有“\'s password: ”时，说明密码不正确，要求重新输入
     if not resp.find(passinfo)==-1:
-        print 'Error info: Authentication failed'
+        print ('Error info: Authentication failed')
 #关闭连接对象后退出
         channel.close()
         ssh.close()
@@ -72,9 +72,9 @@ try:
     while buff.find('# ')==-1:
         resp = channel.recv(9999)
         buff += resp
-except Exception, e:
-    print "Error info:"+str(e)
-print buff
+except Exception as e:
+    print ("Error info:"+str(e))
+print (buff)
 channel.close()
 ssh.close()
 

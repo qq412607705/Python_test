@@ -4,5 +4,6 @@
 
 from fabric import *
 
+
 def host_typr():
     run('uname -s')

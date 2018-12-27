@@ -23,7 +23,12 @@ env.passwords = {
 
 @roles('webservers')  # webtask任务函数引用webservers角色修饰符
 def webtask():  # 部署nginx,php,pip-fpm等环境
+<<<<<<< HEAD
     print(yellow("Install nginx php php-fpm..."))
+=======
+    print
+    yellow("Install nginx php php-fpm...")
+>>>>>>> origin/master
     with settings(warn_only=True):
         run("yum -y install nginx")
         run("yum -y install php-fpm php-mysql php-mbstring php-xml php-mcrypt php-gd")
@@ -33,7 +38,12 @@ def webtask():  # 部署nginx,php,pip-fpm等环境
 
 @roles('dbservers')  # dbtask任务函数引用dbserver角色修饰符
 def dbtask():  # 部署mysql环境
+<<<<<<< HEAD
     print(yellow("Install mysql mysql-server..."))
+=======
+    print
+    yellow("Install mysql mysql-server...")
+>>>>>>> origin/master
     with settings(warn_only=True):
         run("yum -y install mysql mysql-server")
         run("chkconfig --levels 235 mysqld on")
@@ -41,7 +51,12 @@ def dbtask():  # 部署mysql环境
 
 @roles('webservers', 'dbservers')  # publictask任务函数同时引用两个角色修饰符
 def publictask():
+<<<<<<< HEAD
     print(yellow("Install epel ntp..."))
+=======
+    print
+    yellow("Install epel ntp...")
+>>>>>>> origin/master
     with settings(warn_only=True):
         run("yum -y install ntp")
         run("rpm -Uvh http://mirrors.kernel.org/fedora-epel/7/x86_64/e/epel-release-7-10.noarch.rpm ")

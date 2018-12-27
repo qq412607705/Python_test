@@ -10,21 +10,28 @@ env.passwords = {
     'root@39.104.162.125:22': 'Qq15538698678'
 }
 env.roledefs = {
-    'webservers':['192.168.10.100','192.168.10.101'],
-    'dbservers':['39.104.162.125']
+    'webservers': ['192.168.10.100', '192.168.10.101'],
+    'dbservers': ['39.104.162.125']
 }
+
 
 @roles('webservers')
 def webtssk():
     run('yum update')
+
+
 Qq
+
+
 @roles('dbservers')
 def dbtask():
     run('netstat -napt')
 
-@roles('webservers','dbservers')
+
+@roles('webservers', 'dbservers')
 def pubclitask():
     run('uptime')
+
 
 def deploy():
     execute(webtssk)
