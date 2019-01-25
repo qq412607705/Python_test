@@ -7,6 +7,7 @@
     <orderEntry type="module" module-name="Python自动化运维" />
     <orderEntry type="module" module-name="认识Pyrhon" />
     <orderEntry type="module" module-name="chenyu" />
+    <orderEntry type="module" module-name="learngit" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
