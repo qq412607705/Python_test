@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Python自动化运维/.idea/Python自动化运维.iml" filepath="$PROJECT_DIR$/../Python自动化运维/.idea/Python自动化运维.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../chenyu/.idea/chenyu.iml" filepath="$PROJECT_DIR$/../chenyu/.idea/chenyu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/认识Pyrhon.iml" filepath="$PROJECT_DIR$/.idea/认识Pyrhon.iml" />
+    </modules>
+  </component>
+</project>
